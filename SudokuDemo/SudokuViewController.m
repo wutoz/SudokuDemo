@@ -111,10 +111,11 @@
         if(_repeatTime > 0)
             [sudokuview showTitle:[NSString stringWithFormat:@"密码错误，还可以再输入%ld次",_repeatTime]];
         else{
-            NSLog(@"手势密码已失效，崩溃喽！");
-            abort();
+            [sudokuview showTitle:@"启动自动毁灭模式，请扔掉你的手机！"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                abort();
+            });
         }
-        
         return NO;
     }
     return YES;
