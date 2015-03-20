@@ -95,11 +95,13 @@
     SudokuViewController *vc = [[SudokuViewController alloc]init];
     if(indexPath.row == 1){
         vc.type = WTSudokuViewTypeSetting;
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
         vc.type = WTSudokuViewTypeVerity;
+        [self presentViewController:vc animated:YES completion:nil];
     }
     
-    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 
